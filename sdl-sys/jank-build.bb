@@ -5,6 +5,8 @@
       out-dir (:out-dir *input*)
       input   (assoc *input* :src-dir src-dir)]
   (cmake/build input {:defines {"CMAKE_INSTALL_LIBDIR" "lib"
+                                ;; per https://wiki.libsdl.org/SDL3/README-macos
+                                "CMAKE_OSX_DEPLOYMENT_TARGET" "10.13"
                                 "SDL_TESTS" false
                                 "SDL_EXAMPLES" false}})
 
