@@ -1,7 +1,6 @@
 (ns jank.build.util-test
-  (:require
-   [clojure.test :refer [deftest is]]
-   [jank.build.util :as util]))
+  (:require [clojure.test :refer [deftest is]]
+            [jank.build.util :as util]))
 
 (deftest os-detection-test
   (with-redefs [util/os-name "Linux"]
