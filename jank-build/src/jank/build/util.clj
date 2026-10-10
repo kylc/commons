@@ -26,10 +26,16 @@
   ([k] (println (str "jank-build::define=" k)))
   ([k v] (println (str "jank-build::define=" k "=" v))))
 
-(defn include-dir [dir]
+(defn include-dir
+  "Add a jank include-dir directive (a -I flag). If a relative path is given
+  then it is assumed to be relative to the build output directory."
+  [dir]
   (println (str "jank-build::include-dir=" dir)))
 
-(defn link-dir [dir]
+(defn link-dir
+  "Add a jank link-dir directive (a -L flag). If a relative path is given then
+  it is assumed to be relative to the build output directory."
+  [dir]
   (println (str "jank-build::link-dir=" dir)))
 
 (defn link-library [lib]
