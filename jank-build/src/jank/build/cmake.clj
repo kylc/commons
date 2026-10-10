@@ -25,8 +25,7 @@
 
   No jank-build directives are output, so make sure to specify the correct
   link/include directories, link libraries, etc. yourself."
-  [{:keys [src-dir build-dir] :as input}
-   {:keys [defines target] :or {target "install"}}]
+  [{:keys [src-dir build-dir] :as input} & {:keys [defines target] :or {target "install"}}]
   (let [d-flags (map (fn [[k v]] (str "-D" (name k) "=" v))
                      (merge (default-defines input) defines))]
     (proc/shell (concat ["cmake"] d-flags ["-B" build-dir src-dir]))
